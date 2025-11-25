@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selamat datang member</h1>
+    <button id="masukkanNama">Masukkan Nama</button>
+    <button id="hapusNama">Hapus nama</button>
+    <script>
+        const namaMember = document.querySelector('h1');
+
+        const namaTersimpan = localStorage.getItem('namaMember');
+        if (namaTersimpan) {
+            namaMember.innerHTML = `Selamat datang ${namaTersimpan}`;
+        }
+
+        const tombolMasukkan = document.getElementById('masukkanNama');
+        tombolMasukkan.addEventListener('click', function() {
+            const nama = prompt('Masukkan nama Anda:');
+            if (nama && nama.trim() !== '') {
+                localStorage.setItem('namaMember', nama);
+                namaMember.innerHTML = `Selamat datang ${nama}`;
+            } else {
+                alert('Nama tidak boleh kosong!');
+            }
+        });
+
+        const tombolHapus = document.getElementById('hapusNama');
+        tombolHapus.addEventListener('click', function() {
+            localStorage.removeItem('namaMember');
+            namaMember.innerHTML = 'Selamat datang member';
+        });
+
+    </script>
+</body>
+</html>

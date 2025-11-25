@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage 2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            text-align: center;
+            background-color: rgb(215, 215, 215);
+            color: rgb(67, 67, 67);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: rgb(67, 67, 67);
+            color: rgb(215, 215, 215);
+        }
+        .label {
+            display: block;
+            text-align: center;
+        }
+
+        .tulisan {
+            margin: auto;
+            border: 2px solid black;
+            width: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: border-color 0.3s;
+        }
+
+        body.dark-mode .tulisan {
+            border-color: white;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider::before {
+            transform: translateX(26px);
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="label">
+        <h3>Dark Mode</h3>
+        <label for="dark-mode-toggle" class="switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="tulisan">
+        <h1>Universitas Sebelas Maret</h1>
+        <h2>Pendidikan Teknik Informatika dan Komputer</h2>
+    </div>
+    <script>
+        const toggle = document.getElementById("dark-mode-toggle");
+        const body = document.body;
+
+        const storageKey = "dark-mode-enabled";
+
+        function applyTheme(isDark) {
+            if (isDark) {
+                body.classList.add("dark-mode");
+            } else {
+                body.classList.remove("dark-mode");
+            }
+        }
+        (function () {
+            const savedState = localStorage.getItem(storageKey);
+
+            if (savedState === "true") {
+                toggle.checked = true;
+                applyTheme(true);
+            }
+        })();
+        
+        toggle.addEventListener("click", function() {
+            const isChecked = toggle.checked;
+            applyTheme(isChecked);
+            localStorage.setItem(storageKey, isChecked);
+        });
+    </script>
+</body>
+</html>

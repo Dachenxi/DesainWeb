@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menggunakan media query CSS3</title>
+    <style>
+        .dekstop {
+            display: none;
+        }
+
+        @media only screen and (min-device-width: 1024px) {
+            body {
+                background-color: brown;
+            }
+            .dekstop {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Menggunakan Media Query CSS 3</h1>
+    <div class="dekstop">
+        <h2>Terdeteksi ukuran dekstop nih logo uns</h2>
+        <img src="https://uns.ac.id/id/wp-content/uploads/2023/06/logo-uns-biru.png" alt="Logo UNS">
+    </div>
+</body>
+</html>

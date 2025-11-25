@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryHomes - Premium Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-home"></i>
+                <span>LuxuryHomes</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#properties" class="nav-link">Properties</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#agents" class="nav-link">Agents</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-icon" id="searchBtn"><i class="fas fa-search"></i></button>
+                <button class="btn-icon" id="favoriteBtn"><i class="fas fa-heart"></i></button>
+                <button class="btn-primary">List Property</button>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-content">
+            <button class="close-modal" id="closeSearch">modal</button>
+            <h2>Search Properties</h2>
+            <input type="text" placeholder="Search by location, type, or price..." class="search-input" id="searchInput">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Find Your Dream Home</h1>
+                    <p class="hero-subtitle">Discover the perfect property for your lifestyle</p>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Luxury Living Awaits</h1>
+                    <p class="hero-subtitle">Premium properties in prime locations</p>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Your Home, Your Investment</h1>
+                    <p class="hero-subtitle">Expert guidance every step of the way</p>
+                </div>
+            </div>
+        </div>
+        <button class="hero-nav prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="hero-nav next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <div class="search-tabs">
+                <button class="search-tab active" data-type="buy">Buy</button>
+                <button class="search-tab" data-type="rent">Rent</button>
+                <button class="search-tab" data-type="sold">Sold</button>
+            </div>
+            <div class="search-filters">
+                <div class="filter-item">
+                    <i class="fa-solid fa-magnifying-glass-location"></i>
+                    <input type="text" placeholder="Location" id="filterLocation">
+                </div>
+                <div class="filter-item">
+                    <i class="fa-solid fa-building-magnifying-glass"></i>
+                    <select id="filterType">
+                        <option value="">Property Type</option>
+                        <option value="house">House</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="villa">Villa</option>
+                        <option value="land">Land</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <i class="fa-solid fa-magnifying-glass-dollar"></i>
+                    <select id="filterPrice">
+                        <option value="">Price Range</option>
+                        <option value="0-500">$0 - $500K</option>
+                        <option value="500-1000">$500K - $1M</option>
+                        <option value="1000-2000">$1M - $2M</option>
+                        <option value="2000+">$2M+</option>
+                    </select>
+                </div>
+                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <i class="fas fa-building"></i>
+                <h3 class="stat-number" data-target="1250">0</h3>
+                <p>Properties Listed</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <h3 class="stat-number" data-target="850">0</h3>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-award"></i>
+                <h3 class="stat-number" data-target="25">0</h3>
+                <p>Awards Won</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-user-tie"></i>
+                <h3 class="stat-number" data-target="45">0</h3>
+                <p>Expert Agents</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="properties" id="properties">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Properties</h2>
+                <p>Discover our handpicked selection of premium properties</p>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="house">Houses</button>
+                <button class="filter-btn" data-filter="apartment">Apartments</button>
+                <button class="filter-btn" data-filter="villa">Villas</button>
+                <button class="filter-btn" data-filter="land">Land</button>
+            </div>
+
+            <div class="properties-grid" id="propertiesGrid">
+                <!-- Properties will be dynamically loaded -->
+            </div>
+
+            <div class="load-more">
+                <button class="btn-secondary" id="loadMore">Load More Properties</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive real estate solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search-location"></i>
+                    </div>
+                    <h3>Property Search</h3>
+                    <p>Find your perfect property with our advanced search tools and expert guidance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Buy & Sell</h3>
+                    <p>Seamless buying and selling process with competitive pricing and market insights.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Rental Services</h3>
+                    <p>Comprehensive rental management and tenant placement services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Property Valuation</h3>
+                    <p>Accurate property valuations based on current market trends and data.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Legal Assistance</h3>
+                    <p>Expert legal support for all your real estate transactions and documentation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Property Management</h3>
+                    <p>Full-service property management including maintenance and tenant relations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Section -->
+    <section class="agents" id="agents">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Agents</h2>
+                <p>Professional real estate experts ready to help you</p>
+            </div>
+            <div class="agents-grid" id="agentsGrid">
+                <!-- Agents will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about us</p>
+            </div>
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <!-- Testimonials will be dynamically loaded -->
+            </div>
+            <div class="testimonial-dots" id="testimonialDots"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest property listings and market insights</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>We're here to help with all your real estate needs</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Real Estate Ave, Yogyakarta, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+62 274 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@luxuryhomes.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" placeholder="Phone Number" required>
+                        <select required>
+                            <option value="">Select Service</option>
+                            <option value="buy">Buy Property</option>
+                            <option value="sell">Sell Property</option>
+                            <option value="rent">Rent Property</option>
+                            <option value="consult">Consultation</option>
+                        </select>
+                    </div>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-home"></i>
+                        <span>LuxuryHomes</span>
+                    </div>
+                    <p>Your trusted partner in finding the perfect property. We make real estate simple, transparent, and rewarding.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#agents">Our Agents</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Property Types</h4>
+                    <ul>
+                        <li><a href="#">Houses</a></li>
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Villas</a></li>
+                        <li><a href="#">Commercial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Market Insights</a></li>
+                        <li><a href="#">Property Guide</a></li>
+                        <li><a href="#">Mortgage Calculator</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LuxuryHomes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

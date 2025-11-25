@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333333;
+            margin-bottom: 0.5em;
+        }
+
+        .kalkulator-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1em;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5em;
+            gap: 5px;
+            margin-bottom: 1em;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+
+        .input-container input {
+            height: 2rem;
+            flex: 1;
+            border: solid 1px #cccccc;
+            outline: none;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
+
+        .button-container button {
+            flex: 1;
+            padding: 0.75em;
+            font-size: 1em;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+    <div class="kalkulator-container">
+        <div class="input-container">
+            <input type="number" id="input1" placeholder="Angka Pertama">
+            <input type="number" id="input2" placeholder="Angka Kedua">
+        </div>
+        <div class="button-container">
+            <button id="tambah" onclick="tambah()">+</button>
+            <button id="kurang" onclick="kurang()">-</button>
+            <button id="kali" onclick="kali()">*</button>
+            <button id="bagi" onclick="bagi()">/</button>
+        </div>
+        <h2>Hasil: <span id="hasil">0</span></h2>
+    </div>
+    <script>
+        function tambah() {
+            let a = parseFloat(document.getElementById("input1").value);
+            let b = parseFloat(document.getElementById("input2").value);
+            let hasil = a + b;
+            document.getElementById("hasil").innerText = hasil;
+        }
+
+        function kurang() {
+            let a = parseFloat(document.getElementById("input1").value);
+            let b = parseFloat(document.getElementById("input2").value);
+            let hasil = a - b;
+            document.getElementById("hasil").innerText = hasil;
+        }
+
+        function kali() {
+            let a = parseFloat(document.getElementById("input1").value);
+            let b = parseFloat(document.getElementById("input2").value);
+            let hasil = a * b;
+            document.getElementById("hasil").innerText = hasil;
+        }
+
+        function bagi() {
+            let a = parseFloat(document.getElementById("input1").value);
+            let b = parseFloat(document.getElementById("input2").value);
+            let hasil = a / b;
+            document.getElementById("hasil").innerText = hasil;
+        }
+    </script>
+</body>
+</html>
